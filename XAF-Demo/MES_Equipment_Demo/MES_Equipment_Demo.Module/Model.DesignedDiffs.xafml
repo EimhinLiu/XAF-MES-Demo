@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="MES_Equipment_Demo">
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" Caption="设备管理" Index="0" ImageName="Actions_FolderClose">
+        <Items>
+          <Item Id="EquipmentFileMaintenance_ListView" Index="0" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentCategory_ListView" Index="1" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentChildrenClass_ListView" Index="2" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentSpotCheckScheme_ListView" Index="3" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentSpotCheckList_ListView" Index="4" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentSpotCheckQuery_ListView" Index="5" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenancePlan_ListView" Index="6" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenanceSchedule_ListView" Index="7" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenanceQuery_ListView" Index="8" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenanceMonitor_ListView" Index="9" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenanceCreation_ListView" Index="10" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentMaintenanceFilling_ListView" Index="11" ImageName="ModelEditor_Class_Object" />
+          <Item Id="EquipmentRepairQuery_ListView" Index="12" ImageName="ModelEditor_Class_Object" />
+          <Item Id="DepartmentSetting_ListView" Removed="True" />
+          <Item Id="QueryResults_ListView" Visible="False" />
+          <Item Id="ScheduleDetails_ListView" Visible="False" />
+          <Item Id="SchemeDetails_ListView" Visible="False" />
+          <Item Id="SpotCheckDetails_ListView" Visible="False" />
+          <Item Id="SystemUser_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="@dbf64d33-8fdf-49e0-9a4e-d2bfda88c6cd" Caption="系统管理" Index="1" ImageName="Actions_FolderClose" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="SystemUser_ListView" ViewId="SystemUser_ListView" ObjectKey="" Index="2" ImageName="BO_Employee" IsNewNode="True" />
+          <Item Id="DepartmentSetting_ListView" ViewId="DepartmentSetting_ListView" ObjectKey="" Index="3" ImageName="BO_Organization" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="20.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="DepartmentSetting_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="DepartmentSetting" RelativeSize="100">
+              <LayoutItem Id="OrganizationCodeName" Index="0" RelativeSize="4.97737556561086" />
+              <LayoutItem Id="OrganizationName" Index="1" RelativeSize="3.6199095022624435" />
+              <LayoutItem Id="ShortName" RelativeSize="91.4027149321267" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentCategory_ListView">
+      <Columns>
+        <ColumnInfo Id="No" Width="68" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentFileMaintenance_DetailView" Caption="设备档案">
+      <Items>
+        <PropertyEditor Id="EquipmentStatus" AllowEdit="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="37.254901960784316">
+            <LayoutGroup Id="EquipmentFileMaintenance" RelativeSize="100" Caption="设备">
+              <LayoutGroup Id="EquipmentFileMaintenance_col1" RelativeSize="49.792531120331951">
+                <LayoutItem Id="EquipmentNum" RelativeSize="15.714285714285714" />
+                <LayoutItem Id="EquipmentName" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="EquipmentType" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="WorkingHour" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="Department" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="15.714285714285714" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentFileMaintenance_col2" RelativeSize="50.207468879668049">
+                <LayoutItem Id="Manufacturer" RelativeSize="15.714285714285714" />
+                <LayoutItem Id="ActivationDate" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="SpotCheck" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="Maintain" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="11.428571428571429" />
+                <LayoutItem Id="VirtualEquipment" RelativeSize="27.142857142857142" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="21.417797888386122" Caption="备注">
+            <LayoutItem Id="Comment" ViewItem="Comment" Index="0" RelativeSize="100" IsNewNode="True" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="SystemUser_Group" Direction="Vertical" RelativeSize="41.327300150829565" Caption="操作者">
+            <LayoutItem Id="SystemUser" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentFileMaintenance_SystemUser_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentFileMaintenance" Width="82" />
+        <ColumnInfo Id="EquipmentMaintenanceMonitor" Width="82" Index="-1" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="Name" Width="467" />
+        <ColumnInfo Id="AccountNum" Width="82" />
+        <ColumnInfo Id="CardNum" Width="82" />
+        <ColumnInfo Id="Position" Width="82" />
+        <ColumnInfo Id="PositionCategorys" Width="82" />
+        <ColumnInfo Id="DepartmentSettings" Width="82" />
+        <ColumnInfo Id="PhoneNum" Width="82" />
+        <ColumnInfo Id="gender" Width="58" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenanceCreation_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="34.992458521870283">
+            <LayoutGroup Id="EquipmentMaintenanceCreation" ShowCaption="False" RelativeSize="100">
+              <LayoutGroup Id="EquipmentMaintenanceCreation_col1" RelativeSize="50">
+                <LayoutItem Id="ListNo" RelativeSize="14.224137931034482" />
+                <LayoutItem Id="ListStatus" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="Equipment" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentName" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentType" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="Manufacturer" RelativeSize="13.362068965517242" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenanceCreation_col2" RelativeSize="50">
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="14.224137931034482" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="SpotCheck" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="RepairSources" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="SystemUsers" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="ApplicationTime" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="remarks" RelativeSize="23.706896551724139" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="65.00754147812971">
+            <LayoutItem Id="FaultDescription" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentMaintenanceCreation_ListView">
+      <Columns>
+        <ColumnInfo Id="FaultDescription" Index="13" />
+        <ColumnInfo Id="RepairSources" Index="14" />
+        <ColumnInfo Id="SystemUsers" Index="15" />
+        <ColumnInfo Id="ApplicationTime" Index="16" />
+        <ColumnInfo Id="remarks" Index="17" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenanceFilling_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="34.992458521870283">
+            <LayoutGroup Id="EquipmentMaintenanceFilling" ShowCaption="False" RelativeSize="100">
+              <LayoutGroup Id="EquipmentMaintenanceFilling_col1" RelativeSize="50">
+                <LayoutItem Id="ListNo" RelativeSize="14.224137931034482" />
+                <LayoutItem Id="ListStatus" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentFileMaintenances" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentName" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentType" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="10.344827586206897" />
+                <LayoutItem Id="Manufacturer" ViewItem="Manufacturer" Index="8" RelativeSize="13.362068965517242" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="12.109375" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenanceFilling_col2" RelativeSize="50">
+                <LayoutItem Id="EquipmentChildrenClasses" ViewItem="EquipmentChildrenClasses" Index="0" RelativeSize="14.224137931034482" IsNewNode="True" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="10.344827586206897" Index="1" />
+                <LayoutItem Id="SpotCheck" RelativeSize="10.344827586206897" Index="2" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="10.344827586206897" Index="3" />
+                <LayoutItem Id="RepairSources" RelativeSize="10.344827586206897" Index="4" />
+                <LayoutItem Id="SystemUsers1" RelativeSize="10.344827586206897" Index="5" />
+                <LayoutItem Id="ApplicationTime" RelativeSize="10.344827586206897" Index="6" />
+                <LayoutItem Id="MaintenanceCosts" RelativeSize="9.375" Index="6" Removed="True" />
+                <LayoutItem Id="MaintenanceTime" RelativeSize="9.375" Index="6" Removed="True" />
+                <LayoutItem Id="remarks" RelativeSize="23.706896551724139" Index="7" />
+                <LayoutItem Id="SystemUsers2" RelativeSize="9.375" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="65.00754147812971">
+            <LayoutItem Id="FaultDescription" RelativeSize="33.410672853828309" />
+            <LayoutGroup Id="Autoe1be3862-9bf5-4c43-aff5-400f7312d237" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="5.5684454756380513" IsNewNode="True">
+              <LayoutItem Id="SystemUsers2" ViewItem="SystemUsers2" Index="0" RelativeSize="33.333333333333336" IsNewNode="True" />
+              <LayoutItem Id="MaintenanceTime" ViewItem="MaintenanceTime" Index="1" RelativeSize="33.333333333333336" IsNewNode="True" />
+              <LayoutItem Id="MaintenanceCosts" ViewItem="MaintenanceCosts" Index="2" RelativeSize="33.333333333333336" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="MaintenanceContent" RelativeSize="61.02088167053364" Index="2" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentMaintenanceFilling_ListView">
+      <Columns>
+        <ColumnInfo Id="FaultDescription" Index="13" />
+        <ColumnInfo Id="RepairSources" Index="14" />
+        <ColumnInfo Id="SystemUsers1" Index="15" />
+        <ColumnInfo Id="ApplicationTime" Index="16" />
+        <ColumnInfo Id="SystemUsers2" Index="17" />
+        <ColumnInfo Id="MaintenanceTime" Index="18" />
+        <ColumnInfo Id="MaintenanceContent" Index="19" />
+        <ColumnInfo Id="remarks" Index="20" />
+        <ColumnInfo Id="MaintenanceCosts" Index="21" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenanceMonitor_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="44.4947209653092">
+            <LayoutGroup Id="EquipmentMaintenanceMonitor" RelativeSize="100" Caption="设备">
+              <LayoutGroup Id="EquipmentMaintenanceMonitor_col1" RelativeSize="49.797570850202426">
+                <LayoutItem Id="EquipmentNo" RelativeSize="12.790697674418604" />
+                <LayoutItem Id="EquipmentName" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="EquipmentType" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="WorkingHour" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="Manufacturer" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="ActivationDate" RelativeSize="12.790697674418604" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenanceMonitor_col2" RelativeSize="50.202429149797574">
+                <LayoutItem Id="EquipmentStatus" RelativeSize="12.790697674418604" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="SpotCheck" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="Cycle" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="GeneratMaintenancePlan" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="GeneratedMaintenancePlan" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="MaintenanceTimes" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="Maintained" RelativeSize="9.30232558139535" />
+                <LayoutItem Id="Generated" RelativeSize="22.093023255813954" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="14.630467571644042">
+            <LayoutItem Id="Comment" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="SystemUser_Group" Direction="Vertical" RelativeSize="40.874811463046754" Caption="操作者">
+            <LayoutItem Id="SystemUser" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentMaintenanceMonitor_SystemUser_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentFileMaintenance" Width="82" Index="-1" />
+        <ColumnInfo Id="EquipmentMaintenanceMonitor" Width="82" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="Name" Width="467" />
+        <ColumnInfo Id="AccountNum" Width="82" />
+        <ColumnInfo Id="CardNum" Width="82" />
+        <ColumnInfo Id="Position" Width="82" />
+        <ColumnInfo Id="PositionCategorys" Width="82" />
+        <ColumnInfo Id="DepartmentSettings" Width="82" />
+        <ColumnInfo Id="PhoneNum" Width="82" />
+        <ColumnInfo Id="gender" Width="58" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenancePlan_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="6.0331825037707389">
+            <LayoutGroup Id="EquipmentMaintenancePlan" RelativeSize="100" Caption="设备保养方案" ShowCaption="False">
+              <LayoutGroup Id="EquipmentMaintenancePlan_col1" Caption="EquipmentMaintenancePlan_col1" RelativeSize="39.869281045751634" Direction="Horizontal">
+                <LayoutItem Id="PlanName" ViewItem="PlanName" Index="0" RelativeSize="49.508196721311478" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="EquipmentCategorys" ViewItem="EquipmentCategorys" Index="1" RelativeSize="50.491803278688522" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="MaintenanceCycles" Index="1" RelativeSize="50" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenancePlan_col2" RelativeSize="60.130718954248366" Caption="EquipmentMaintenancePlan_col2" Direction="Horizontal">
+                <LayoutItem Id="MaintenanceCycles" ViewItem="MaintenanceCycles" Index="0" RelativeSize="33.260869565217391" IsNewNode="True" />
+                <LayoutItem Id="MaintenanceLevels" ViewItem="MaintenanceLevels" Index="1" RelativeSize="32.826086956521742" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="SchemeStatus" RelativeSize="33.913043478260867" Index="2" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SchemeDetails_Group" Direction="Vertical" RelativeSize="93.966817496229254" Caption="明细">
+            <LayoutItem Id="SchemeDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentMaintenancePlan_SchemeDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentMaintenancePlan" Width="82" />
+        <ColumnInfo Id="EquipmentSpotCheckScheme" Width="82" SortIndex="0" SortOrder="Ascending" Index="-1" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="No" Width="58" />
+        <ColumnInfo Id="Benchmark" Width="82" />
+        <ColumnInfo Id="project" Width="82" />
+        <ColumnInfo Id="Method" Width="82" />
+        <ColumnInfo Id="Picture" Width="82" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenanceQuery_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.612368024132728">
+            <LayoutGroup Id="EquipmentMaintenanceQuery" ShowCaption="False" RelativeSize="100">
+              <LayoutGroup Id="EquipmentMaintenanceQuery_col1" RelativeSize="49.934810951760106">
+                <LayoutItem Id="ListNo" RelativeSize="12.890625" />
+                <LayoutItem Id="Equipment" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentName" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentType" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="9.375" />
+                <LayoutItem Id="Status" RelativeSize="9.375" />
+                <LayoutItem Id="Manufacturer" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="9.375" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="12.109375" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenanceQuery_col2" RelativeSize="50.065189048239894">
+                <LayoutItem Id="CNCEquipment" RelativeSize="12.890625" />
+                <LayoutItem Id="remarks" RelativeSize="9.375" />
+                <LayoutItem Id="SpotCheck" RelativeSize="9.375" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="9.375" />
+                <LayoutItem Id="StartTime" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceLevels" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceCycles" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="9.375" />
+                <LayoutItem Id="Schedule_Time" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentMaintenancePlans" RelativeSize="12.109375" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="ScheduleDetails_Group" Direction="Vertical" RelativeSize="61.387631975867272" Caption="明细">
+            <LayoutItem Id="ScheduleDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentMaintenanceQuery_ScheduleDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentMaintenanceQuery" Width="82" />
+        <ColumnInfo Id="EquipmentMaintenanceSchedule" Width="82" Index="-1" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="No" Width="58" />
+        <ColumnInfo Id="Benchmark" Width="82" />
+        <ColumnInfo Id="project" Width="82" />
+        <ColumnInfo Id="Method" Width="82" />
+        <ColumnInfo Id="Comment" Width="82" />
+        <ColumnInfo Id="Picture" Width="82" />
+        <ColumnInfo Id="MaintenanceStatus" Width="82" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentMaintenanceSchedule_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.612368024132728">
+            <LayoutGroup Id="EquipmentMaintenanceSchedule" ShowCaption="False" RelativeSize="100">
+              <LayoutGroup Id="EquipmentMaintenanceSchedule_col1" RelativeSize="49.934640522875817">
+                <LayoutItem Id="ListNo" RelativeSize="12.5" />
+                <LayoutItem Id="Equipment" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentName" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentType" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="9.375" />
+                <LayoutItem Id="Status" RelativeSize="9.375" />
+                <LayoutItem Id="Manufacturer" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="9.375" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="12.5" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentMaintenanceSchedule_col2" RelativeSize="50.065359477124183">
+                <LayoutItem Id="CNCEquipment" RelativeSize="12.5" />
+                <LayoutItem Id="remarks" RelativeSize="9.375" />
+                <LayoutItem Id="SpotCheck" RelativeSize="9.375" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="9.375" />
+                <LayoutItem Id="StartTime" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceLevels" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceCycles" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="9.375" />
+                <LayoutItem Id="Schedule_Time" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentMaintenancePlans" RelativeSize="12.5" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="ScheduleDetails_Group" Direction="Vertical" RelativeSize="61.387631975867272" Caption="明细">
+            <LayoutItem Id="ScheduleDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="EquipmentRepairQuery_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.612368024132728">
+            <LayoutGroup Id="EquipmentRepairQuery" ShowCaption="False" RelativeSize="100">
+              <LayoutGroup Id="EquipmentRepairQuery_col1" RelativeSize="50">
+                <LayoutItem Id="ListNo" RelativeSize="12.890625" />
+                <LayoutItem Id="ListStatus" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentFileMaintenances" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentName" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentType" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="9.375" />
+                <LayoutItem Id="Manufacturer" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="12.109375" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentRepairQuery_col2" RelativeSize="50">
+                <LayoutItem Id="CNCEquipment" RelativeSize="12.890625" />
+                <LayoutItem Id="SpotCheck" RelativeSize="9.375" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="9.375" />
+                <LayoutItem Id="RepairSources" RelativeSize="9.375" />
+                <LayoutItem Id="SystemUsers1" RelativeSize="9.375" />
+                <LayoutItem Id="ApplicationTime" RelativeSize="9.375" />
+                <LayoutItem Id="SystemUsers2" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceTime" RelativeSize="9.375" />
+                <LayoutItem Id="MaintenanceCosts" RelativeSize="9.375" />
+                <LayoutItem Id="remarks" RelativeSize="12.109375" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="61.387631975867272">
+            <LayoutItem Id="FaultDescription" RelativeSize="49.631449631449634" />
+            <LayoutItem Id="MaintenanceContent" RelativeSize="50.368550368550366" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentRepairQuery_ListView">
+      <Columns>
+        <ColumnInfo Id="FaultDescription" Index="13" />
+        <ColumnInfo Id="RepairSources" Index="14" />
+        <ColumnInfo Id="SystemUsers1" Index="15" />
+        <ColumnInfo Id="ApplicationTime" Index="16" />
+        <ColumnInfo Id="SystemUsers2" Index="17" />
+        <ColumnInfo Id="MaintenanceTime" Index="18" />
+        <ColumnInfo Id="MaintenanceContent" Index="19" />
+        <ColumnInfo Id="MaintenanceCosts" Index="20" />
+        <ColumnInfo Id="remarks" Index="21" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentSpotCheckList_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.612368024132728">
+            <LayoutGroup Id="EquipmentSpotCheckList" Caption="设备点检单" RelativeSize="100" ShowCaption="False">
+              <LayoutGroup Id="EquipmentSpotCheckList_col1" RelativeSize="49.804941482444733">
+                <LayoutItem Id="ListNo" RelativeSize="12.890625" />
+                <LayoutItem Id="SpotCheckTime" RelativeSize="9.375" />
+                <LayoutItem Id="Equipment" RelativeSize="9.375" />
+                <LayoutItem Id="StartTime" RelativeSize="9.375" />
+                <LayoutItem Id="ListStatus" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentSpotCheckSchemes" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentName" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentType" RelativeSize="9.375" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="12.109375" />
+              </LayoutGroup>
+              <LayoutGroup Id="EquipmentSpotCheckList_col2" RelativeSize="50.195058517555267">
+                <LayoutItem Id="Manufacturer" RelativeSize="12.890625" />
+                <LayoutItem Id="remarks1" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentStatus" RelativeSize="9.375" />
+                <LayoutItem Id="Creater" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentChildrenClasses" RelativeSize="9.375" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="9.375" />
+                <LayoutItem Id="SpotCheck" RelativeSize="9.375" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="9.375" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="9.375" />
+                <LayoutItem Id="remarks2" RelativeSize="12.109375" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SpotCheckDetails_Group" Direction="Vertical" RelativeSize="61.387631975867272" Caption="点检详情">
+            <LayoutItem Id="SpotCheckDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="EquipmentSpotCheckQuery_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="9.653092006033182">
+            <LayoutGroup Id="EquipmentSpotCheckQuery" RelativeSize="100">
+              <LayoutItem Id="StartTime" RelativeSize="51.5625" />
+              <LayoutItem Id="EndTime" RelativeSize="48.4375" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="QueryResults_Group" Caption="查询结果" Direction="Vertical" RelativeSize="90.346907993966823">
+            <LayoutItem Id="QueryResults" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentSpotCheckQuery_QueryResults_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentSpotCheckQuery" Width="112" />
+        <ColumnInfo Id="Oid" Width="112" />
+        <ColumnInfo Id="Date" Width="112" Index="0" />
+        <ColumnInfo Id="EquipmentNo" Width="112" Index="1" />
+        <ColumnInfo Id="EquipmentName" Width="218" Index="2" />
+        <ColumnInfo Id="EquipmentType" Width="112" Index="3" />
+        <ColumnInfo Id="EquipmentCategorys" Width="112" Index="4" />
+        <ColumnInfo Id="Manufacturer" Width="112" Index="5" />
+        <ColumnInfo Id="DepartmentSettings" Width="112" Index="6" />
+        <ColumnInfo Id="InstallationPlace" Width="112" Index="7" />
+        <ColumnInfo Id="WorkingHour" Width="79" Index="8" />
+        <ColumnInfo Id="EquipmentStatus" Width="112" Index="9" />
+        <ColumnInfo Id="SpotCheck" Width="79" Index="10" />
+        <ColumnInfo Id="Maintain" Width="79" Index="11" />
+        <ColumnInfo Id="CNCEquipment" Width="79" Index="12" />
+        <ColumnInfo Id="VirtualEquipment" Width="79" Index="13" />
+        <ColumnInfo Id="ActivationDate" Width="112" Index="14" />
+        <ColumnInfo Id="Comment" Width="112" Index="15" />
+        <ColumnInfo Id="SpotCheckStatus" Width="112" Index="16" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EquipmentSpotCheckScheme_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="6.0331825037707389">
+            <LayoutGroup Id="EquipmentSpotCheckScheme" RelativeSize="100" Caption="EquipmentSpotCheckScheme" Direction="Horizontal">
+              <LayoutItem Id="SchemeName" ViewItem="SchemeName" Index="0" RelativeSize="33.377659574468083" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="EquipmentCategorys" ViewItem="EquipmentCategorys" Index="1" RelativeSize="33.244680851063826" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="SchemeStatus" RelativeSize="33.377659574468083" Index="2" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SchemeDetails_Group" Caption="明细" Direction="Vertical" RelativeSize="93.966817496229254">
+            <LayoutItem Id="SchemeDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EquipmentSpotCheckScheme_SchemeDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="EquipmentMaintenancePlan" Width="82" Index="-1" />
+        <ColumnInfo Id="EquipmentSpotCheckScheme" Width="82" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="No" Width="58" />
+        <ColumnInfo Id="Benchmark" Width="82" />
+        <ColumnInfo Id="project" Width="82" />
+        <ColumnInfo Id="Method" Width="82" />
+        <ColumnInfo Id="Picture" Width="82" />
+      </Columns>
+    </ListView>
+    <DetailView Id="QueryResults_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="QueryResults" RelativeSize="100">
+              <LayoutGroup Id="QueryResults_col1" RelativeSize="50">
+                <LayoutItem Id="Date" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="EquipmentNo" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="EquipmentName" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="EquipmentType" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="EquipmentCategorys" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Manufacturer" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="DepartmentSettings" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="InstallationPlace" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="WorkingHour" RelativeSize="67.58064516129032" />
+              </LayoutGroup>
+              <LayoutGroup Id="QueryResults_col2" RelativeSize="50">
+                <LayoutItem Id="EquipmentStatus" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="SpotCheck" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Maintain" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="CNCEquipment" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="VirtualEquipment" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="ActivationDate" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Comment" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="SpotCheckStatus" RelativeSize="71.451612903225808" />
+                <LayoutItem Id="EquipmentSpotCheckQuery" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ScheduleDetails_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="ScheduleDetails" RelativeSize="100">
+              <LayoutGroup Id="ScheduleDetails_col1" RelativeSize="49.797570850202426">
+                <LayoutItem Id="No" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="Benchmark" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="project" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Method" RelativeSize="3.870967741935484" Index="3" />
+                <LayoutItem Id="Comment" Index="4" RelativeSize="3.870967741935484" ViewItem="Comment" IsNewNode="True" />
+                <LayoutItem Id="MaintenanceStatus" ViewItem="MaintenanceStatus" Index="5" RelativeSize="79.193548387096769" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ScheduleDetails_col2" RelativeSize="50.202429149797574" Caption="ScheduleDetails_col2">
+                <LayoutItem Id="Picture" RelativeSize="100" Index="0" />
+                <LayoutItem Id="MaintenanceStatus" RelativeSize="94.6774193548387" Index="1" Removed="True" />
+                <LayoutItem Id="EquipmentMaintenanceQuery" Removed="True" />
+                <LayoutItem Id="EquipmentMaintenanceSchedule" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SchemeDetails_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="SchemeDetails" RelativeSize="100">
+              <LayoutGroup Id="SchemeDetails_col1" RelativeSize="49.795918367346935">
+                <LayoutItem Id="No" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="Benchmark" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="project" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Method" RelativeSize="86.935483870967744" />
+              </LayoutGroup>
+              <LayoutGroup Id="SchemeDetails_col2" RelativeSize="50.204081632653065" Caption="SchemeDetails_col2">
+                <LayoutItem Id="Picture" RelativeSize="100" />
+                <LayoutItem Id="EquipmentSpotCheckScheme" ViewItem="EquipmentSpotCheckScheme" Index="2" RelativeSize="90.806451612903231" Removed="True" />
+                <LayoutItem Id="EquipmentMaintenancePlan" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SpotCheckDetails_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="SpotCheckDetails" RelativeSize="100">
+              <LayoutGroup Id="SpotCheckDetails_col1" RelativeSize="49.864864864864863">
+                <LayoutItem Id="No" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="Benchmark" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Project" RelativeSize="3.870967741935484" />
+                <LayoutItem Id="Method" RelativeSize="3.870967741935484" Index="3" />
+                <LayoutItem Id="SpotCheckStatus" ViewItem="SpotCheckStatus" Index="4" RelativeSize="83.064516129032256" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="SpotCheckDetails_col2" RelativeSize="50.135135135135137" Caption="SpotCheckDetails_col2">
+                <LayoutItem Id="Picture" RelativeSize="100" />
+                <LayoutItem Id="EquipmentSpotCheckList" Removed="True" />
+                <LayoutItem Id="SpotCheckStatus" RelativeSize="94.6774193548387" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SystemUser_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="SystemUser" RelativeSize="100">
+              <LayoutGroup Id="SystemUser_col1" RelativeSize="49.662618083670715">
+                <LayoutItem Id="Name" RelativeSize="5.32258064516129" />
+                <LayoutItem Id="CardNum" RelativeSize="3.870967741935484" Index="1" />
+                <LayoutItem Id="gender" ViewItem="gender" Index="2" RelativeSize="3.870967741935484" IsNewNode="True" />
+                <LayoutItem Id="DepartmentSettings" ViewItem="DepartmentSettings" Index="3" RelativeSize="3.870967741935484" IsNewNode="True" />
+                <LayoutItem Id="Position" RelativeSize="3.870967741935484" Index="3" Removed="True" />
+                <LayoutItem Id="PhoneNum" ViewItem="PhoneNum" Index="4" RelativeSize="83.064516129032256" IsNewNode="True" />
+                <LayoutItem Id="PositionCategorys" Index="4" RelativeSize="83.064516129032256" Removed="True" />
+                <LayoutItem Id="AccountNum" RelativeSize="3.870967741935484" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="SystemUser_col2" RelativeSize="50.337381916329285">
+                <LayoutItem Id="AccountNum" ViewItem="AccountNum" Index="0" RelativeSize="5.32258064516129" IsNewNode="True" />
+                <LayoutItem Id="Position" ViewItem="Position" Index="1" RelativeSize="3.870967741935484" IsNewNode="True" />
+                <LayoutItem Id="gender" Index="2" RelativeSize="3.870967741935484" Removed="True" />
+                <LayoutItem Id="PositionCategorys" ViewItem="PositionCategorys" Index="2" RelativeSize="90.806451612903231" IsNewNode="True" />
+                <LayoutItem Id="EquipmentFileMaintenance" Index="3" RelativeSize="86.935483870967744" Removed="True" />
+                <LayoutItem Id="PhoneNum" Index="3" RelativeSize="3.870967741935484" Removed="True" />
+                <LayoutItem Id="DepartmentSettings" Removed="True" />
+                <LayoutItem Id="EquipmentMaintenanceMonitor" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
